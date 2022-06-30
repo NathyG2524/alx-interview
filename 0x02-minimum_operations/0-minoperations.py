@@ -73,11 +73,11 @@ def minOperations(n):
         return n
     if (isfdivisible_by2(n)):
         count = count_no_iteration(n, 2)
-        return count 
+        return count
 
     if isdivisible_by3(n) and isdivisible_by2(n):
         count = count_no_iteration(n, 2)
-        return (count )
+        return (count)
 
     if isdivisible_by3(n) and not isdivisible_by2(n):
         return int(n / 3 + 3)
