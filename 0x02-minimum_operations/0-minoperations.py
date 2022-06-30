@@ -20,7 +20,7 @@ def isprime(n):
 def minOperations(n):
     """minimum operations"""
     listFac = []
-    for i in range(2, int(n)+1):
+    for i in range(1, int(n)+1):
         while (n % i == 0):
             if (isprime(i)):
                 listFac.append(i)
