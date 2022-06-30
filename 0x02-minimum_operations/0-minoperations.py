@@ -25,7 +25,7 @@ def minOperations(n):
     if n == 1:
         return 0
     if (isprime(n)):
-        return n
+        return int(n)
     for i in range(2, int(n)):
         while (n % i == 0):
             if (isprime(i)):
@@ -35,5 +35,10 @@ def minOperations(n):
     lisum = 0
     for i in listFac:
         lisum = lisum + i
+    
+    
 
     return int(lisum)
+
+
+print(minOperations(2.0))
