@@ -24,6 +24,8 @@ def minOperations(n):
         return 0
     if n == 1:
         return 0
+    if (isprime(n)):
+        return n
     for i in range(2, int(n)+1):
         while (n % i == 0):
             if (isprime(i)):
