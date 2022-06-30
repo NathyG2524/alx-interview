@@ -38,7 +38,5 @@ def minOperations(n):
     
     
 
-    return int(lisum)
+    return (lisum)
 
-
-print(minOperations(2.0))
