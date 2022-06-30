@@ -36,4 +36,4 @@ def minOperations(n):
     for i in listFac:
         lisum = lisum + i
 
-    return lisum
+    return int(lisum)
