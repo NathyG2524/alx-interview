@@ -19,6 +19,8 @@ def isprime(n):
 
 def minOperations(n):
     """minimum operations"""
+    if not (isinstance(n, int)):
+        return 0
     listFac = []
     if n < 1:
         return 0
@@ -35,8 +37,5 @@ def minOperations(n):
     lisum = 0
     for i in listFac:
         lisum = lisum + i
-    
-    
 
     return (lisum)
-
