@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 '''a script that reads stdin line by line and computes metrics'''
 
-import sys
 
+import sys
 
 file_list = []
 status_list = []
@@ -30,14 +30,15 @@ try:
         if (ipCheck(ip)):
             for size in file_list:
                 total_size = total_size + int(size)
-            if (counter % 10 == 0):
-                print(f'File size: {total_size}')
+                
             codeSet = set(status_list)
             codetuple = list(codeSet)
             codetuple.sort()
-            for code in codetuple:
-                number = status_list.count(code)
-                if (counter % 10 == 0):
+            if (counter % 10 == 0):
+                print(f'File size: {total_size}')
+                for code in codetuple:
+                    number = status_list.count(code)
+                    
                     print(f'{code}: {number}')
         counter += 1
 
