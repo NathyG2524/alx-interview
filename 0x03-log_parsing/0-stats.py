@@ -4,20 +4,21 @@
 import sys
 
 
-
 file_list = []
 status_list = []
 counter = 1
 total_size = 0
 
+
 def ipCheck(ip):
-    ip_list= ip.split('.')
+    ip_list = ip.split('.')
     value = True
     for i in ip_list:
         if (int(i) < 0) or (int(i) > 255):
             value = False
     return value
-    
+
+
 try:
     for line in sys.stdin:
         line_list = line.split()
@@ -53,4 +54,3 @@ finally:
         number = status_list.count(code)
         print(f'{code}: {number}')
     # print(error)
-
