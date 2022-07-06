@@ -35,23 +35,23 @@ try:
             codetuple = list(codeSet)
             codetuple.sort()
             if (counter % 10 == 0):
-                print(f'File size: {total_size}')
+                print('File size: {}'.format(total_size))
                 for code in codetuple:
                     number = status_list.count(code)
                     
-                    print(f'{code}: {number}')
-        counter += 1
+                    print('{}: {}'.format(code, number))
+            counter += 1
 
 except Exception as error:
     pass
 finally:
     for size in file_list:
         total_size = total_size + int(size)
-    print(f'File size: {total_size}')
+    print('File size: {}'.format(total_size))
     codeSet = set(status_list)
     codetuple = list(codeSet)
     codetuple.sort()
     for code in codetuple:
         number = status_list.count(code)
-        print(f'{code}: {number}')
+        print('{}: {}'.format(code, number))
     # print(error)
