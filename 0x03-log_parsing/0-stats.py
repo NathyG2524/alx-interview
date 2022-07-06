@@ -42,9 +42,18 @@ try:
                     print('{}: {}'.format(code, number))
             counter += 1
 
-except Exception as error:
-    pass
-finally:
+except KeyboardInterrupt:
+    for size in file_list:
+        total_size = total_size + int(size)
+    print('File size: {}'.format(total_size))
+    codeSet = set(status_list)
+    codetuple = list(codeSet)
+    codetuple.sort()
+    for code in codetuple:
+        number = status_list.count(code)
+        print('{}: {}'.format(code, number))
+    raise
+else:
     for size in file_list:
         total_size = total_size + int(size)
     print('File size: {}'.format(total_size))
