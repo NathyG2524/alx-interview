@@ -40,7 +40,9 @@ try:
                     print(f'{code}: {number}')
         counter += 1
 
-except KeyboardInterrupt:
+except Exception as error:
+    pass
+finally:
     for size in file_list:
         total_size = total_size + int(size)
     print(f'File size: {total_size}')
