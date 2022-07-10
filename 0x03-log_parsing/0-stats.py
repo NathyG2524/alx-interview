@@ -4,65 +4,34 @@
 
 import sys
 
-file_list = []
-status_list = []
-counter = 1
+cache = {'200': 0, '301': 0, '400': 0, '401': 0,
+         '403': 0, '404': 0, '405': 0, '500': 0}
 total_size = 0
-status_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
-
-def ipCheck(ip):
-    ip_list = ip.split('.')
-    value = True
-    for i in ip_list:
-        if (int(i) < 0) or (int(i) > 255):
-            value = False
-    return value
-
+counter = 0
 
 try:
     for line in sys.stdin:
-        line_list = line.split()
-        ip = line_list[0]
-        status_code = line_list[7]
-        file_size = line_list[8]
-        file_list.append(file_size)
-        status_list.append(status_code)
-        if (ipCheck(ip)):
-            for size in file_list:
-                total_size = total_size + int(size)
-                
-            # codeSet = set(status_list)
-            # codetuple = list(codeSet)
-            # codetuple.sort()
-            if (counter % 10 == 0):
-                print('File size: {}'.format(total_size))
-                for code in status_codes:
-                    number = status_list.count(code)
-                    if number:
-                        print('{}: {}'.format(code, number))
+        line_list = line.split(" ")
+        if len(line_list) > 4:
+            code = line_list[-2]
+            size = int(line_list[-1])
+            if code in cache.keys():
+                cache[code] += 1
+            total_size += size
             counter += 1
 
-except KeyboardInterrupt:
-    for size in file_list:
-        total_size = total_size + int(size)
+        if counter == 10:
+            counter = 0
+            print('File size: {}'.format(total_size))
+            for key, value in sorted(cache.items()):
+                if value != 0:
+                    print('{}: {}'.format(key, value))
+
+except Exception as err:
+    pass
+
+finally:
     print('File size: {}'.format(total_size))
-    # codeSet = set(status_list)
-    # codetuple = list(codeSet)
-    # codetuple.sort()
-    for code in status_codes:
-        number = status_list.count(code)
-        if number:
-            print('{}: {}'.format(code, number))
-    raise
-else:
-    for size in file_list:
-        total_size = total_size + int(size)
-    print('File size: {}'.format(total_size))
-    # codeSet = set(status_list)
-    # codetuple = list(codeSet)
-    # codetuple.sort()
-    for code in status_codes:
-        number = status_list.count(code)
-        if number:
-            print('{}: {}'.format(code, number))
-    # print(error)
+    for key, value in sorted(cache.items()):
+        if value != 0:
+            print('{}: {}'.format(key, value))
