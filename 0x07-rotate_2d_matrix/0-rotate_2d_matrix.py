@@ -12,11 +12,11 @@ def rotate_2d_matrix(matrix):
             newNum = matrix[i][j]
             newArray.append(newNum)
         newMatrix.append(newArray)
-    
+
     for i in range(len(matrix)):
         for j in range(len(matrix[i])):
             newMatrix[j][i] = matrix[i][j]
-    
+
     for i in range(len(newMatrix)):
         newArray = []
         for j in range(len(newMatrix[i])):
@@ -30,6 +30,5 @@ def rotate_2d_matrix(matrix):
             n = len(matrix[i]) - 1
             lastMatrix[i][n - k] = newMatrix[i][j]
             k += 1
-            
-        print(n) 
-    print(lastMatrix)
+        # print(n)
+    return (lastMatrix)
