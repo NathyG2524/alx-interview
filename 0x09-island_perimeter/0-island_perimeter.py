@@ -7,7 +7,7 @@ Island Perimeter: returns the perimeter of the island
 def island_perimeter(grid):
     """determine the perimeter of an island"""
     count = 0
-    print(f'len of grid {len(grid)}')
+    # print(f'len of grid {len(grid)}')
     for i in range(len(grid)):
         for j in range(len(grid[i])):
             if grid[i][j] == 1:
